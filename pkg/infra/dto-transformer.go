@@ -2,7 +2,7 @@ package infra
 
 import (
 	"fmt"
-	"hello-go/pkg/app"
+	"hello-go/pkg/core"
 	"strings"
 
 	"github.com/go-playground/validator/v10"
@@ -12,7 +12,7 @@ import (
 // TransformDto from json to dto
 func TransformDto(c echo.Context, d interface{}) error {
 	if err := c.Bind(d); err != nil {
-		return app.NewError(app.InternalServerError, "Failed to bind Dto")
+		return core.NewError(core.InternalServerError, "Failed to bind Dto")
 	}
 
 	if err := c.Validate(d); err != nil {
@@ -24,7 +24,7 @@ func TransformDto(c echo.Context, d interface{}) error {
 
 		errStr := strings.Join(errors, "\n")
 
-		return app.NewError(app.ValidationError, errStr)
+		return core.NewError(core.ValidationError, errStr)
 	}
 
 	return nil

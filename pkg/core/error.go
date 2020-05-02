@@ -1,4 +1,4 @@
-package app
+package core
 
 // ErrorType defines the type of errors
 type ErrorType string
