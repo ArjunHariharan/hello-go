@@ -12,7 +12,7 @@ import (
 // TransformDto from json to dto
 func TransformDto(c echo.Context, d interface{}) error {
 	if err := c.Bind(d); err != nil {
-		return core.NewError(core.InternalServerError, "Failed to bind Dto")
+		return core.NewError(core.InternalServerError, core.InteralServerCode, "Failed to bind Dto")
 	}
 
 	if err := c.Validate(d); err != nil {
@@ -24,7 +24,7 @@ func TransformDto(c echo.Context, d interface{}) error {
 
 		errStr := strings.Join(errors, "\n")
 
-		return core.NewError(core.ValidationError, errStr)
+		return core.NewError(core.ValidationError, core.InvalidRequestCode, errStr)
 	}
 
 	return nil

@@ -11,6 +11,7 @@ func main() {
 
 	rest.RegisterRoutes(e)
 	rest.RegisterValidator(e)
+	rest.RegisterErrorHandler(e)
 
 	e.Logger.Fatal(e.Start(":1323"))
 }
