@@ -1,4 +1,4 @@
-package infra
+package util
 
 import (
 	"fmt"
@@ -9,8 +9,8 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-// TransformDto from json to dto
-func TransformDto(c echo.Context, d interface{}) error {
+// RestDtoTransformer from json to dto
+func RestDtoTransformer(c echo.Context, d interface{}) error {
 	if err := c.Bind(d); err != nil {
 		return core.NewError(core.InternalServerError, core.InteralServerCode, "Failed to bind Dto")
 	}
