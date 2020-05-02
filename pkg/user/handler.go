@@ -9,8 +9,8 @@ import (
 )
 
 func create(c echo.Context) error {
-	d := new(CreateUserDto)
-	if err := util.RestDtoTransformer(c, d); err != nil {
+	d := CreateUserDto{}
+	if err := util.RestDtoTransformer(c, &d); err != nil {
 		fmt.Println(err.Error())
 		return err
 	}
