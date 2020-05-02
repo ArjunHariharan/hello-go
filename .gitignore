@@ -33,4 +33,4 @@ _testmain.go
 *.prof
 
 # binary output
-hello-go
+/bin
