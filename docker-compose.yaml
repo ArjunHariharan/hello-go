@@ -1,0 +1,29 @@
+version: '3'
+volumes:
+  pg_db:
+
+services:
+  db:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: pg
+      POSTGRES_PASSWORD: pg
+    volumes:
+      - pg_db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", -U, pg]
+      interval: 5s
+      timeout: 5s
+      retries: 3
+
+  pgadmin:
+    image: "dpage/pgadmin4"
+    ports:
+      - "31001:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pg
+      PGADMIN_DEFAULT_PASSWORD: pg
+    depends_on:
+      - db
