@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"hello-go/pkg/config"
+	"hello-go/pkg/infrastructure/database"
 	"hello-go/pkg/rest"
 	"os"
 
@@ -14,6 +15,13 @@ func main() {
 	if err != nil {
 		os.Exit(1)
 	}
+
+	repository, err := database.New(config)
+	if err != nil {
+		os.Exit(1)
+	}
+
+	repository.Migrate()
 
 	e := echo.New()
 
