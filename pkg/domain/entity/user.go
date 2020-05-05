@@ -1,20 +1,15 @@
 package entity
 
 import (
-	"time"
-
 	uuid "github.com/satori/go.uuid"
 )
 
 // User entity
 type User struct {
-	ID        int
-	UUID      uuid.UUID  `gorm:"type:uuid"`
-	Email     string     `gorm:"type:varchar(256);unique_index"`
-	Password  string     `gorm:"type:varchar(72)"`
-	CreatedAt time.Time  `gorm:"default:CURRENT_TIMESTAMP" json:"created_at"`
-	UpdatedAt time.Time  `gorm:"default:CURRENT_TIMESTAMP" json:"updated_at"`
-	DeletedAt *time.Time `json:"deleted_at"`
+	ID       int
+	UUID     uuid.UUID
+	Email    string
+	Password string
 }
 
 // New returns an instance of User

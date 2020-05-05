@@ -2,12 +2,10 @@ package main
 
 import (
 	"fmt"
-	"hello-go/pkg/config"
+	"hello-go/pkg/infrastructure/config"
 	"hello-go/pkg/infrastructure/database"
-	"hello-go/pkg/rest"
+	"hello-go/pkg/interfaces/web"
 	"os"
-
-	"github.com/labstack/echo/v4"
 )
 
 func main() {
@@ -23,12 +21,11 @@ func main() {
 
 	repository.Migrate()
 
-	e := echo.New()
+	restServer, err := web.NewServer()
+	if err != nil {
+		os.Exit(1)
+	}
 
-	rest.RegisterRoutes(e)
-	rest.RegisterValidator(e)
-	rest.RegisterErrorHandler(e)
-
-	host := fmt.Sprintf(":%d", config.Server.Port)
-	e.Logger.Fatal(e.Start(host))
+	host := fmt.Sprintf(":%d", config.WebServer.Port)
+	restServer.Start(host)
 }

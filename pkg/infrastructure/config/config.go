@@ -8,12 +8,12 @@ import (
 
 // Config exported
 type Config struct {
-	Server   ServerConfig
-	Database DatabaseConfig
+	WebServer WebServerConfig
+	Database  DatabaseConfig
 }
 
-// ServerConfig exported
-type ServerConfig struct {
+// WebServerConfig exported
+type WebServerConfig struct {
 	Port int
 }
 

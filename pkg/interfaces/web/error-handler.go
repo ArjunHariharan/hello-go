@@ -1,7 +1,7 @@
-package rest
+package web
 
 import (
-	"hello-go/pkg/core"
+	"hello-go/pkg/domain/core"
 	"net/http"
 
 	"github.com/labstack/echo/v4"
@@ -28,6 +28,6 @@ func HTTPErrorHandler(err error, c echo.Context) {
 }
 
 // RegisterErrorHandler registers error handler to echo
-func RegisterErrorHandler(e *echo.Echo) {
+func registerErrorHandler(e *echo.Echo) {
 	e.HTTPErrorHandler = HTTPErrorHandler
 }

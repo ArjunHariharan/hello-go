@@ -1,4 +1,4 @@
-package rest
+package web
 
 import (
 	"reflect"
@@ -19,7 +19,7 @@ func (cv *CustomValidator) Validate(i interface{}) error {
 }
 
 // RegisterValidator registers custome validator to echo's validator obj.
-func RegisterValidator(e *echo.Echo) {
+func registerValidator(e *echo.Echo) {
 	validator := validator.New()
 	validator.RegisterTagNameFunc(func(fld reflect.StructField) string {
 		name := strings.SplitN(fld.Tag.Get("json"), ",", 2)[0]

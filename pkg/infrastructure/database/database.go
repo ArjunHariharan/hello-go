@@ -2,8 +2,7 @@ package database
 
 import (
 	"fmt"
-	"hello-go/pkg/config"
-	"hello-go/pkg/domain/entity"
+	"hello-go/pkg/infrastructure/config"
 
 	"github.com/jinzhu/gorm"
 	// Import postgres dialect
@@ -12,7 +11,8 @@ import (
 
 // Repository class
 type Repository struct {
-	db *gorm.DB
+	db             *gorm.DB
+	UserRepository *UserRepository
 }
 
 const dbDriver = "postgres"
@@ -35,11 +35,13 @@ func New(c *config.Config) (*Repository, error) {
 
 	db.LogMode(true)
 
-	r := &Repository{db: db}
+	userRepository := UserRepository{db}
+
+	r := &Repository{db: db, UserRepository: &userRepository}
 	return r, nil
 }
 
 // Migrate the database
 func (r *Repository) Migrate() {
-	r.db.AutoMigrate(&entity.User{})
+	r.db.AutoMigrate(&userModel{})
 }

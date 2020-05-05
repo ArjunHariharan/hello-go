@@ -1,8 +1,8 @@
-package util
+package handler
 
 import (
 	"fmt"
-	"hello-go/pkg/core"
+	"hello-go/pkg/domain/core"
 	"strings"
 
 	"github.com/go-playground/validator/v10"

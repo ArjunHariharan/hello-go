@@ -1,4 +1,4 @@
-server:
+webserver:
   port: 8080
   
 database:
