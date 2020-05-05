@@ -1,14 +1,18 @@
 package web
 
-import "github.com/labstack/echo/v4"
+import (
+	"hello-go/pkg/application"
 
-// NewServer creates an instance of echo server
-func New() (*echo.Echo, error) {
+	"github.com/labstack/echo/v4"
+)
+
+// New creates an instance of echo server
+func New(a *application.Application) (*echo.Echo, error) {
 	e := echo.New()
 
 	registerValidator(e)
 	registerErrorHandler(e)
-	registerRoutes(e)
+	registerRoutes(e, a)
 
 	return e, nil
 }

@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"hello-go/pkg/application"
 	"hello-go/pkg/infrastructure/config"
 	"hello-go/pkg/infrastructure/database"
 	"hello-go/pkg/interfaces/web"
@@ -18,10 +19,12 @@ func main() {
 	if err != nil {
 		os.Exit(1)
 	}
-
 	repository.Migrate()
 
-	restServer, err := web.New()
+	application := application.New(repository)
+	fmt.Println(application)
+
+	restServer, err := web.New(application)
 	if err != nil {
 		os.Exit(1)
 	}

@@ -26,7 +26,7 @@ type UserRepository struct {
 
 //SaveUser saves the user
 func (*UserRepository) SaveUser(*entity.User) (*entity.User, error) {
-	fmt.Println("save user called")
+	fmt.Println("save user called from db repository")
 	return nil, nil
 }
 
