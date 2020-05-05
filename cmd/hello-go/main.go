@@ -21,7 +21,7 @@ func main() {
 
 	repository.Migrate()
 
-	restServer, err := web.NewServer()
+	restServer, err := web.New()
 	if err != nil {
 		os.Exit(1)
 	}

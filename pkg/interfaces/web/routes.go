@@ -6,7 +6,6 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-// RegisterRoutes is used to add routes to echo server
 func registerRoutes(e *echo.Echo) {
 	registerUserRoutes(e)
 }

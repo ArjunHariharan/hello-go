@@ -27,7 +27,6 @@ func HTTPErrorHandler(err error, c echo.Context) {
 	}
 }
 
-// RegisterErrorHandler registers error handler to echo
 func registerErrorHandler(e *echo.Echo) {
 	e.HTTPErrorHandler = HTTPErrorHandler
 }

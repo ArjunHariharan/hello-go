@@ -41,6 +41,6 @@ func (*UserRepository) GetUsers() ([]entity.User, error) {
 }
 
 // GetUserByEmailAndPassword fetches the user details
-func (*UserRepository) GetUserByEmailAndPassword(*entity.User) (*entity.User, map[string]string) {
+func (*UserRepository) GetUserByEmailAndPassword(*entity.User) (*entity.User, error) {
 	return nil, nil
 }

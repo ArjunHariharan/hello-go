@@ -18,7 +18,6 @@ func (cv *CustomValidator) Validate(i interface{}) error {
 	return cv.validator.Struct(i)
 }
 
-// RegisterValidator registers custome validator to echo's validator obj.
 func registerValidator(e *echo.Echo) {
 	validator := validator.New()
 	validator.RegisterTagNameFunc(func(fld reflect.StructField) string {
