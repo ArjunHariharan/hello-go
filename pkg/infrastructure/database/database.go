@@ -2,7 +2,7 @@ package database
 
 import (
 	"fmt"
-	"hello-go/pkg/config"
+	"hello-go/pkg/common/config"
 
 	"github.com/jinzhu/gorm"
 	// Import postgres dialect

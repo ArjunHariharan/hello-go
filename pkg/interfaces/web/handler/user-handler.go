@@ -27,7 +27,9 @@ func (h *UserHandler) CreateUser(c echo.Context) error {
 		return err
 	}
 
-	h.a.SaveUser()
+	rc := ToReqContext(c)
+
+	h.a.SaveUser(rc)
 	fmt.Println(d)
 
 	return c.JSON(http.StatusOK, d)
