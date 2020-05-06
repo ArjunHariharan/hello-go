@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"hello-go/pkg/application"
-	"hello-go/pkg/infrastructure/config"
+	"hello-go/pkg/config"
 	"hello-go/pkg/infrastructure/database"
 	"hello-go/pkg/interfaces/web"
 	"os"
