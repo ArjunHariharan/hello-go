@@ -12,6 +12,7 @@ func New(a *application.Application) (*echo.Echo, error) {
 
 	registerValidator(e)
 	registerErrorHandler(e)
+	registerMiddleware(e)
 	registerRoutes(e, a)
 
 	return e, nil

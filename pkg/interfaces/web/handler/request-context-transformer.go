@@ -8,5 +8,7 @@ import (
 
 // ToReqContext converts echo context to request context
 func ToReqContext(e echo.Context) *context.ReqContext {
-	return context.New("1234")
+	requestID := e.Get(context.RequestID).(string)
+
+	return context.New(requestID)
 }
