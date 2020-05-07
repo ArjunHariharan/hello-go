@@ -1,7 +1,6 @@
 package application
 
 import (
-	"fmt"
 	"hello-go/pkg/common/context"
 	"hello-go/pkg/domain/repository"
 )
@@ -19,8 +18,7 @@ type CreateUserDto struct {
 
 // SaveUser service
 func (u *UserApplication) SaveUser(c *context.ReqContext) error {
-	fmt.Println(c)
-	fmt.Println("User application called")
+	c.Logger.Info().Msg("User Application called")
 	u.r.SaveUser(nil)
 
 	return nil
